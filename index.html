@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, CSS3, JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="header">
+      <img src="images/header.png">
+  </div>
+  <nav>
+      <ul class="topnav">
+              <li><a class="active" href="#home">O projekcie</a></li>
+              <li><a href="#news">Studenci</a></li>
+              <li><a href="#contact">Dokumentacja</a></li>
+              <li class="right"><a href="#about">Coś o sobie</a></li>
+        </ul>
+  </nav>
+
+
+
+
+   <div class="audio-player-container">
+     <div class="logo">
+        <img src="images/logo.png">
+    </div>
+
+    <div class="player">
+       <div id="songTitle" class="song-title">My song title will goes hereMy song title will goes here</div> <!--Tu znajduje się tytuł piosenki-->
+       <input id="songSlider" class="song-slider" type="range" min="0" step="1" onchange="seekSong()" />
+
+       <div id="currentTime" class="current-time">00:00</div>
+       <div id="duration" class="duration">00:00</div>
+
+       <div class="controllers">
+           <img src="images/previous.png" width="30px" onclick="previous();" /> <!-- JS -->
+           <img src="images/backward.png" width="30px" onclick="decreasePlaybackRate();" /> <!-- JS -->
+           <img src="images/pause.png" width="30px" onclick="playOrPauseSong(this);" /> <!-- JS -->
+           <img src="images/forward.png" width="30px" onclick="increasePlaybackRate();" /> <!-- JS -->
+           <img src="images/next.png" width="30px" onclick="next();" /> <!-- JS -->
+
+            <img src="images/volume-down.png" width="20px" onclick="next();" /> <!-- JS -->
+            <input id="volumeSlider" class="volume-slider" type="range" min="0" max="1" step="0.01" onchange="adjustVolume()" />
+            <img src="images/volume-up.png" width="20px" onclick="next();" /> <!-- JS -->
+       </div>
+       <div id="nextSongTitle" class="song-title"><b>Next Song: </b>Next Song title goes here...</div>
+    </div>
+   </div>
+
+   <script type="text/javascript" src="player.js"></script>
+
+    <div class="footer"> </div>
+</body>
+</html>
