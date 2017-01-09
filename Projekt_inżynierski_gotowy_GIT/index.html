@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Obowiązkowe meta dane zawsze pierwsze -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <!-- Note that this is functionally equivalent to using the HTML5 doctype. It places Internet Explorer into the highest supported document mode. Use the following value to display the webpage in edge mode, which is the highest standards mode supported by Internet Explorer, from Internet Explorer 6 through IE11.-->
+    
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+    
+    <!-- Mój CSS -->
+    <link rel="stylesheet" href="styles-main.css">
+    <link rel = "stylesheet" type = "text/css" href = "styles/stylesOne.css" />
+    <link rel = "stylesheet" type = "text/css" href = "styles/stylesTwo.css" />
+    
+    <!-- Mój JS -->
+    <script src = "scripts/scriptAudioOne.js"></script>
+    <script src = "scripts/scriptAudioTwo.js"></script>
+    
+</head>
+<body>
+   
+    <nav class="navbar navbar-light bg-faded navbar-fixed-top"> <!-- Nav in top while scroll -->
+      <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+      
+      <a class="navbar-brand" href="#"><img src="images/logo.png" alt="nasz Projekt" height="26">naszProjekt</a>
+      
+      <div class="collapse navbar-toggleable-xs" id="navbarResponsive">
+            <ul class="nav navbar-nav float-sm-right">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Strona główna <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pj">Projekt</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#on">O nas</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informacje</a>
+                <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
+                  <a class="dropdown-item" href="#css">CSS</a>
+                  <a class="dropdown-item" href="#bootstrap">Bootstrap</a>
+                  <a class="dropdown-item" href="#js">javaScript</a>
+                   <a class="dropdown-item" href="#dk">Dokumentacja</a>
+                </div>
+              </li>
+               <li class="nav-item">
+                <a class="btn btn-primary" href="#">Napisz do Nas</a>
+              </li>
+            </ul>
+           <!-- <form class="form-inline float-lg-right">
+              <input class="form-control" type="text" placeholder="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
+      </div>
+    </nav>
+   <div id="stage">
+       <div id="stage-caption">
+           <h1 class="display-3">"Plan - coś, co później wygląda absolutnie inaczej"</h1>
+           <p>SONGS MIX</p>
+       </div> 
+   </div>
+   
+   <!-- PROJEKT -->
+   <section id="feature-one"><a name="pj"></a>
+       <div class="container">
+           <div class="row">
+               <div class="feature-content">
+                   <div class="col-lg-6 col-lg-offset-1">
+                       <h6>Zobacz to!</h6>
+                       <h2>Poznaj siłę javaScript i Bootstrap!</h2>
+                       <p class="lead">Bootsrap i javaScript to niesamowite połączenie narzędzi do tworzenia responsywnych stron internetowych, wspartych o znakomitą funkcjonalność.</p>
+                   </div>
+                   <div class="col-lg-6 col-lg-offset-1">
+                       <h6>SONGS MIX</h6>
+                       <h2>Projekt SONGS MIX</h2>
+                       <p class="lead">Za pomocą skryptowego języka programowania javaScript, nasz zespół tworzy aplikacje SONGS MIX. Aplikacja we wczesnej fazie ma za zadanie zrobić płynne przejście między dwiema piosenkami wybranymi przez użytkownika.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   
+   
+   <section id="feature-one-pj">
+       <div class="container">
+           <div class="row">
+               <div class="feature-content">
+         <!-- Tu będzie nasz projekt -->  
+                   <div class ="songMixContainer">
+       
+        <!-- 1 AUDIO APP -->
+            <div id = "audioContainer" onload = "initcursor();">
+                <img src = "img/logo.png" id = "audioContainer_logo"/>
+                <table id = "titleMusic">
+                    <tr>
+                        <td id = "titleMusic_blockLogo">
+                            <img src = "img/music.svg" id = "titleMusic_blockLogo_logo"/>
+                        </td>
+                        <td id = "titleMusic_blockTitle">
+                            DM Galaxy - Paralyzed
+                        </td>
+                    </tr>
+                </table>
+                <table id = "audio_controllers">
+                <tr>
+                    <td width = "1%" id = "btnSon">
+                            <img src = "img/volumeUp.svg" class = "controllers"  onclick = "muteUnMute('mute')"/>
+                        </td>
+                        <td width = "20%" style = "padding-bottom :10px;">
+                            <input type = "range" id = "audio_controllers_cursorSon" min = "0" max = "100" value = "100"/>
+                        </td>
+                </tr>
+                    <tr>
+                        <td width = "1%" id = "audio_controllers_pauseStart">
+                            <img src = "img/playNoFocus.svg" class = "controllers" onmouseover = "hoverPlay(this)" onmouseout = "unhoverPlay(this)" onclick = "pausePlay('play')" id = 'btn_playPause' />
+                        </td>
+
+                        <td style = "padding-bottom :10px;">
+                            <input type = "range" id = "audio_controllers_cursorMusic" value = "0" min = "0" max = "228" onclick = "changerPositionMusic(this)"/>
+                        </td>
+                        <td width = "1%">
+                            <img src = "img/stop.svg" class = "controllers" onclick = "stop()" />
+                        </td>
+
+                    </tr>
+                </table>
+
+                <table id = "block_title_Music">
+                    <tr>
+                        <td id = "block_list_Music">
+                            <ul id = "list_Music">
+                                <li onclick = "changeMusic('DM Galaxy - Paralyzed')">
+                                    DM Galaxy - Paralyzed
+                                </li>
+                                <li onclick = "changeMusic('The Avner - Fade Out Lines')">
+                                    The Avner - Fade Out Lines
+                                </li>
+                                <li onclick = "changeMusic('Jumpstar ft. Ron Carroll - We Did Alright (The Golden Boy Remix)')">
+                                    Jumpstar ft. Ron Carroll - We Did Alright (The Golden Boy Remix)
+                                </li>
+                                 <li onclick = "changeMusic('IRA - Ona jest ze snu')">
+                                    IRA - Ona jest ze snu
+                                </li>
+                                 <li onclick = "changeMusic('Twenty One Pilots - Car Radio')">
+                                    Twenty One Pilots - Car Radio
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div id = "audioContainerAudio">
+
+                    <audio id = "audio" src = "audio/DM Galaxy - Paralyzed.mp3" />
+
+                    </audio>		
+                </div>
+            </div>
+
+        <!-- 2 AUDIO APP -->
+            <div id = "audioContainer" onload = "initcursor2();">
+                <img src = "img/logo.png" id = "audioContainer_logo2"/>
+                <table id = "titleMusic2">
+                    <tr>
+                        <td id = "titleMusic_blockLogo2">
+                            <img src = "img/music.svg" id = "titleMusic_blockLogo_logo2"/>
+                        </td>
+                        <td id = "titleMusic_blockTitle2">
+                            DM Galaxy - Paralyzed
+                        </td>
+                    </tr>
+                </table>
+                <table id = "audio_controllers2">
+                <tr>
+                    <td width = "1%" id = "btnSon2">
+                            <img src = "img/volumeUp.svg" class = "controllers2"  onclick = "muteUnMute2('mute')"/> <!-- ikona  głosnosci -->
+                        </td>
+                        <td width = "20%" style = "padding-bottom :10px;">
+                            <input type = "range" id = "audio_controllers_cursorSon2" min = "0" max = "100" value = "100"/> <!-- poziom  głosnosci -->
+                        </td>
+                </tr>
+                    <tr>
+                        <td width = "1%" id = "audio_controllers_pauseStart2">
+                            <img src = "img/playNoFocus.svg" class = "controllers2" onmouseover = "hoverPlay2(this)" onmouseout = "unhoverPlay2(this)" onclick = "pausePlay2('play')" id = 'btn_playPause2' />
+                        </td>
+
+                        <td style = "padding-bottom :10px;">
+                            <input type = "range" id = "audio_controllers_cursorMusic2" value = "0" min = "0" max = "228" onclick = "changerPositionMusic2(this)"/>
+                        </td>
+                        <td width = "1%">
+                            <img src = "img/stop.svg" class = "controllers2" onclick = "stop2()" />
+                        </td>
+
+                    </tr>
+                </table>
+
+                <table id = "block_title_Music2">
+                    <tr>
+                        <td id = "block_list_Music2">
+                            <ul id = "list_Music2">
+                                <li onclick = "changeMusic2('DM Galaxy - Paralyzed')">
+                                    DM Galaxy - Paralyzed
+                                </li>
+                                <li onclick = "changeMusic2('The Avner - Fade Out Lines')">
+                                    The Avner - Fade Out Lines
+                                </li>
+                                <li onclick = "changeMusic2('Jumpstar ft. Ron Carroll - We Did Alright (The Golden Boy Remix)')">
+                                    Jumpstar ft. Ron Carroll - We Did Alright (The Golden Boy Remix)
+                                </li>
+                                 <li onclick = "changeMusic2('IRA - Ona jest ze snu')">
+                                    IRA - Ona jest ze snu
+                                </li>
+                                 <li onclick = "changeMusic2('Twenty One Pilots - Car Radio')">
+                                    Twenty One Pilots - Car Radio
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div id = "audioContainerAudio2">
+
+                    <audio id = "audio2" src = "audio/DM Galaxy - Paralyzed.mp3" />
+
+                    </audio>		
+                </div>
+            </div>
+     </div>
+           <!-- Koniec projektu -->
+           </div>
+           </div>
+       </div>
+   </section>
+   
+   <!-- O NAS -->
+    <section id="feature-two" class="feature-dark"><a name="on"></a>
+       <div class="container">
+
+               <div class="feature-content">
+                   <div class="col-md-4">
+                       <h6>Daniel Mrzygłód</h6>
+                      <h2>CSS - Bootstrap - JS</h2>
+                      <p class="lead">Tworzenie ogólnej koncepcji i funkcji projektu, responsywności strony i aplikacji.</p>
+                   </div>
+                   <div class="col-md-4">
+                       <h6>Karolina Blok</h6>
+                      <h2>CSS- JS</h2>
+                      <p class="lead">Poprawa funkcjonalności i przejrzystośi aplikacji, dodawanie nowych funkcji, praca nad ogólnym wyglądem projektu.</p>
+                   </div>
+                   <div class="col-md-4">
+                       <h6>Przemysław Matusiewicz</h6>
+                      <h2>Dokumentacja Tehchniczna</h2>
+                      <p class="lead">Odpowiedzialna praca nad dokumentacją techniczną projektu.</p>
+                   </div>
+                </div>
+        </div>
+   </section>
+   
+   <!-- CSS -->
+   <section id="feature-three"><a name="css"></a>
+       <div class="container">
+           <div class="row">
+               <div class="feature-content">
+                   <div class="col-lg-6 col-lg-offset-1">
+                       <h6>arkusz stylów</h6>
+                       <h2>HTML, CSS -podstawa!</h2>
+                       <p class="lead text-justify">Zbuduj fundamenty w HTML i wypełnij je w CSS</p>
+                       <p class="lead text-justify">Naucz się jak korzystać z HTML i CSS przy tworzeniu stron internetowych. HTML jest językiem znaczników, który otacza treść, aby wskazać przeglądarce nagłówki, listy, tabele, itp. CSS jest językiem nadającym styl stronie, nakazuje przeglądarce zmienić kolor, czcionkę, wygląd i wiele więcej.</p>
+                   </div>
+                   <div class="col-lg-6 text-sm-center hidden-sm-down">
+                        <img src="images/css.png" alt="iphone" width="80%">
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   
+   <!-- BOOSTRAP -->
+    <section id="feature-four" class="feature-dark"><a name="bootstrap"></a>
+       <div class="container">
+           <div class="row">
+               <div class="feature-content">
+                   <div class="col-lg-6 feature-caption">
+                       <h6>Niesamowite możliwości Bootstrap</h6>
+                      <h2>Wszystko zależy od Twojej wyobraźni!</h2>
+                      <p class="lead text-justify">Bootstrap to zbiór różnych, dostosowywalnych elementów oraz funkcji projektowania WEB spakowanych w jednym narzędziu. Podczas projektowania strony z Bootstrap’em, programiści mogą wybrać, których elementów użyć. Co ważniejsze, mogą oni mieć pewność, że wybrane elementy nie będą ze sobą kolidowały. To jak układanie puzzli, tyle, że w tym przypadku każdy puzzel pasuje do innego, bez względu, co wybierzesz.</p>
+                      <a href="http://v4-alpha.getbootstrap.com/" target="_blank"role="button" class="btn btn-outline-secondary btn-lg">Wejdź do akcji!</a>
+                   </div>
+                    <div id="screenphone"  class="col-lg-6 text-sm-center hidden-sm-down"> <!-- hidde on small screens-->
+                           <img src="images/screen.png" alt="iphone" width="80%">
+                     </div>
+                </div>
+            </div>
+        </div>
+   </section>
+   
+    <!-- JS -->
+   <section id="feature-five"><a name="js"></a>
+       <div class="container">
+           <div class="row">
+               <div class="feature-content">
+                   <div class="col-lg-6 col-lg-offset-1">
+                       <h6>aplikacje web</h6>
+                       <h2>javaScript - realizuj swoje pomysły!</h2>
+                       <p class="lead text-justify">Programowanie w JavaScript to niezwykle przyjemne zajęcie.</p>
+                       <p class="lead text-justify">JavaScript jest małym, lekkim, zorientowanym obiektowo wieloplatformowym językiem skryptowym. JavaScript, mimo że nie jest użyteczny jako samodzielny język, został stworzony z myślą o łatwym zagnieżdżaniu w innych produktach i aplikacjach, jak na przykład przeglądarki internetowe. JavaScript może zostać powiązany z wewnętrzną strukturą danego środowiska dając programiście swobodną kontrolę nad jego elementami.</p>
+                   </div>
+                   <div class="col-lg-6 text-sm-center hidden-sm-down">
+                        <img src="images/javascript2.png" alt="iphone" width="80%">
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   
+   <!-- DOKUMENTACJA -->
+   <section id="feature-six"><a name="dk"></a>
+       <div class="container">
+           <div class="row">
+               <div class="feature-content">
+                   <div class="col-lg-8 col-lg-offset-2 ">
+                       <h6>POBIERZ DOKUMENTACJĘ TECHNICZNĄ NA SWÓJ KOMPUTER</h6>
+                       <h2>Dokumentacja Techniczna aplikacji SONGS MIX</h2>
+                       <p>Nasz zespół starał się przygotować dokładną, czytelną dokumentację techniczną aplikacji SONGS MIX. Dziękujemy za wsparcie!</p>
+                       <a href="" role="button" class="btn btn-success">DOWNLOAD</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   
+   <!-- STOPKA -->
+   <footer id="main-footer">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-6">
+                   &copy; 2016 - 2017 Wszelkie prawa zastrzeżone.
+               </div>
+               <div class="col-md-2">
+                   <h6>Informacje</h6>
+                   <ul class="list-unstyled">
+                       <li><a href="#pj">Projekt</a></li>
+                       <li><a href="#css">CSS</a></li>
+                       <li><a href="#bootstrap">Bootstrap</a></li>
+                       <li><a href="#js">javaScript</a></li>
+                   </ul>
+               </div>
+               
+               <div class="col-md-2">
+                   <h6>O nas</h6>
+                   <ul class="list-unstyled">
+                       <li><a href="#on">Zespół</a></li>
+                       <li><a href="#">Napisz do nas</a></li>
+                   </ul>
+               </div>
+               
+               <div class="col-md-2">
+                   <h6>Inne</h6>
+                   <ul class="list-unstyled">
+                       <li><a href="http://www.w3schools.com/html/default.asp" target="_blank">HTML Start</a></li>
+                       <li><a href="http://www.w3schools.com/css/default.asp" target="_blank">CSS Tutorials</a></li>
+                       <li><a href="http://getbootstrap.com/components/" target="_blank">Bootstrap Comp.</a></li>
+                       <li><a href="http://www.w3schools.com/js/" target="_blank">javaScript Examples</a></li>
+                   </ul>
+               </div>
+               
+           </div>
+       </div>
+   </footer>
+    
+    <!-- jQuery na początku, Tether, na końcu Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

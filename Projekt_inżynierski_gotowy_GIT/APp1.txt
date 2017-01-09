@@ -1,0 +1,69 @@
+  <!-- 1 AUDIO APP
+	 	<div id = "audioContainer" onload = "initcursor();">
+			<img src = "img/logo.png" id = "audioContainer_logo"/>
+			<table id = "titleMusic">
+				<tr>
+					<td id = "titleMusic_blockLogo">
+						<img src = "img/music.svg" id = "titleMusic_blockLogo_logo"/>
+					</td>
+					<td id = "titleMusic_blockTitle">
+						DM Galaxy - Paralyzed
+					</td>
+				</tr>
+			</table>
+			<table id = "audio_controllers">
+			<tr>
+			    <td width = "1%" id = "btnSon">
+						<img src = "img/volumeUp.svg" alt = "Couper le son" class = "controllers"  onclick = "muteUnMute('mute')"/>
+					</td>
+					<td width = "20%" style = "padding-bottom :10px;">
+						<input type = "range" id = "audio_controllers_cursorSon" min = "0" max = "100" value = "100"/>
+					</td>
+			</tr>
+				<tr>
+					<td width = "1%" id = "audio_controllers_pauseStart">
+						<img src = "img/playNoFocus.svg" alt = "Jouer" class = "controllers" onmouseover = "hoverPlay(this)" onmouseout = "unhoverPlay(this)" onclick = "pausePlay('play')" id = 'btn_playPause' />
+					</td>
+					
+					<td style = "padding-bottom :10px;">
+						<input type = "range" id = "audio_controllers_cursorMusic" value = "0" min = "0" max = "228" onclick = "changerPositionMusic(this)"/>
+					</td>
+					<td width = "1%">
+						<img src = "img/stop.svg" class = "controllers" onclick = "stop()" />
+					</td>
+					
+				</tr>
+			</table>
+			
+			<table id = "block_title_Music">
+			    <tr>
+                    <td id = "block_list_Music">
+                        <ul id = "list_Music">
+                            <li onclick = "changeMusic('DM Galaxy - Paralyzed')">
+                                DM Galaxy - Paralyzed
+                            </li>
+                            <li onclick = "changeMusic('The Avner - Fade Out Lines')">
+                                The Avner - Fade Out Lines
+                            </li>
+                            <li onclick = "changeMusic('Jumpstar ft. Ron Carroll - We Did Alright (The Golden Boy Remix)')">
+                                Jumpstar ft. Ron Carroll - We Did Alright (The Golden Boy Remix)
+                            </li>
+                             <li onclick = "changeMusic('IRA - Ona jest ze snu')">
+                                IRA - Ona jest ze snu
+                            </li>
+                             <li onclick = "changeMusic('Twenty One Pilots - Car Radio')">
+                                Twenty One Pilots - Car Radio
+                            </li>
+                        </ul>
+                    </td>
+			    </tr>
+		    </table>
+		
+		
+            <div id = "audioContainerAudio">
+                
+                <audio id = "audio" src = "audio/DM Galaxy - Paralyzed.mp3" />
+
+                </audio>		
+            </div>
+        </div> -->
